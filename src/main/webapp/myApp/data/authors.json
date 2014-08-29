@@ -1,0 +1,11 @@
+[
+    {
+        "name": "Brian Arnold",
+        "avatar": "myApp/widget/images/brian_arnold/avatar.jpg",
+        "bio": "Brian Arnold is a software engineer at SitePen, Inc. He has a lovely wife, two cute dogs, is an active member of (and presenter at) Webuquerque, and ranks among the top 3% of fake guitarists in Rock Band."
+    },
+    {
+        "name": "Bryan Forbes",
+        "bio": "Bryan Forbes has used Dojo since 2006 and became a Dojo committer shortly thereafter. He rewrote Dojo's effects system for the 0.3 release and currently maintains the DataGrid. He is a senior software engineer at SitePen, Inc."
+    }
+]
