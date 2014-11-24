@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -9,69 +8,69 @@
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dijit/themes/claro/claro.css" media="screen">
 </head>
 <body class="claro">
-  <div id="appLayout" class="demoLayout"></div>
-  <div id="startContent">
-    <h4>Starting Content</h4>
-    <button id="createTabBtn">Add another tab</button>
-  </div>
-  <!-- load dojo -->
-  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dojo/dojo.js"></script>
-  <script>
-            require([ "dojo/on", "dojo/dom", "dijit/registry", "dijit/layout/BorderContainer",
-                    "dijit/layout/TabContainer", "dijit/layout/ContentPane", "dojo/domReady!" ], function(on, dom,
-                    registry, BorderContainer, TabContainer, ContentPane) {
-                function addTab(name) {
-                    var pane = new ContentPane({
-                        title : name,
-                        content : "<h4>" + name + "</h4>"
-                    });
-                    registry.byId("contentTabs").addChild(pane);
-                }
+     <div id="appLayout" class="demoLayout"></div>
+     <div id="startContent">
+          <h4>Starting Content</h4>
+          <button id="createTabBtn">Add another tab</button>
+     </div>
+     <!-- load dojo -->
+     <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dojo/dojo.js"></script>
+     <script>
+                        require([ "dojo/on", "dojo/dom", "dijit/registry", "dijit/layout/BorderContainer",
+                                "dijit/layout/TabContainer", "dijit/layout/ContentPane", "dojo/domReady!" ], function(
+                                on, dom, registry, BorderContainer, TabContainer, ContentPane) {
+                            function addTab(name) {
+                                var pane = new ContentPane({
+                                    title : name,
+                                    content : "<h4>" + name + "</h4>"
+                                });
+                                registry.byId("contentTabs").addChild(pane);
+                            }
 
-                // create the BorderContainer and attach it to our appLayout div
-                var appLayout = new BorderContainer({
-                    design : "headline"
-                }, "appLayout");
+                            // create the BorderContainer and attach it to our appLayout div
+                            var appLayout = new BorderContainer({
+                                design : "headline"
+                            }, "appLayout");
 
-                // create the TabContainer
-                var contentTabs = new TabContainer({
-                    region : "center",
-                    id : "contentTabs",
-                    tabPosition : "bottom",
-                    "class" : "centerPanel",
-                    href : "contentCenter.html"
-                })
+                            // create the TabContainer
+                            var contentTabs = new TabContainer({
+                                region : "center",
+                                id : "contentTabs",
+                                tabPosition : "bottom",
+                                "class" : "centerPanel",
+                                href : "contentCenter.html"
+                            })
 
-                // add the TabContainer as a child of the BorderContainer
-                appLayout.addChild(contentTabs);
+                            // add the TabContainer as a child of the BorderContainer
+                            appLayout.addChild(contentTabs);
 
-                // create and add the BorderContainer edge regions
-                appLayout.addChild(new ContentPane({
-                    region : "top",
-                    "class" : "edgePanel",
-                    content : "Header content (top)"
-                }))
-                appLayout.addChild(new ContentPane({
-                    region : "left",
-                    id : "leftCol",
-                    "class" : "edgePanel",
-                    content : "Sidebar content (left)",
-                    splitter : true
-                }));
+                            // create and add the BorderContainer edge regions
+                            appLayout.addChild(new ContentPane({
+                                region : "top",
+                                "class" : "edgePanel",
+                                content : "Header content (top)"
+                            }))
+                            appLayout.addChild(new ContentPane({
+                                region : "left",
+                                id : "leftCol",
+                                "class" : "edgePanel",
+                                content : "Sidebar content (left)",
+                                splitter : true
+                            }));
 
-                // Add initial content to the TabContainer
-                contentTabs.addChild(new ContentPane({
-                    title : "Start"
-                }, "startContent"));
+                            // Add initial content to the TabContainer
+                            contentTabs.addChild(new ContentPane({
+                                title : "Start"
+                            }, "startContent"));
 
-                var tabCounter = 1;
-                on(dom.byId("createTabBtn"), "click", function(evt) {
-                    addTab("Tab " + (++tabCounter));
-                });
+                            var tabCounter = 1;
+                            on(dom.byId("createTabBtn"), "click", function(evt) {
+                                addTab("Tab " + (++tabCounter));
+                            });
 
-                // start up and do layout
-                appLayout.startup();
-            });
-        </script>
+                            // start up and do layout
+                            appLayout.startup();
+                        });
+                    </script>
 </body>
 </html>

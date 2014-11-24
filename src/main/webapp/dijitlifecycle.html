@@ -6,41 +6,44 @@
 <link rel="stylesheet" href="style/demo.css" media="screen">
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dijit/themes/claro/claro.css" media="screen">
 </head>
+
+<!-- Reference: Understanding _WidgetBase  -->
+<!-- http://dojotoolkit.org/documentation/tutorials/1.10/understanding_widgetbase -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.2/dojo/dojo.js"></script>
+<script>
+    require([ "dojo/_base/array", "dijit/form/Button", "dojo/aspect", "dojo/dom", "dojo/dom-construct",
+            "dojo/domReady!" ], function(array, Button, aspect, dom, domConstruct) {
+
+        // connect to the lifecycle methods of a dijit.form.Button
+        var methods = [ "postscript", "create", "postMixInProperties", "buildRendering", "postCreate", "startup" ];
+        var prt = function(method) {
+            console.log("method: " + method);
+            console.log("arguments: " + arguments);
+            domConstruct.create("li", {
+                innerHTML : method
+            }, dom.byId("ol_lifecycle"));
+        };
+
+        for ( var i in methods) {
+            aspect.before(Button.prototype, methods[i], prt(methods[i]));
+        }
+
+        // ok, create a button programmatically
+        var button = Button({
+            label : "A button"
+        }, dom.byId("div_button"));
+
+        button.startup();
+    });
+</script>
 <body class="claro">
-  <h1>Demo: Showing the lifecycle of a Widget</h1>
-  <p>The list below is created dynamically during the instantiation of a simple Dijit button. For more detailed
-    information (such as the arguments passed to each method), check your Firebug or Developer console.</p>
-  <ol id="lifecycle"></ol>
-  <div id="buttonContainer"></div>
+     <h1>Demo: Showing the lifecycle of a Widget</h1>
+     <p>The list below is created dynamically during the instantiation of a simple Dijit button. For more detailed
+          information (such as the arguments passed to each method), check your Firebug or Developer console.</p>
 
-  <!-- Reference -->
-  <!-- Understanding _WidgetBase  -->
-  <!-- http://dojotoolkit.org/documentation/tutorials/1.10/understanding_widgetbase -->
+     <div id="div_button"></div>
 
-  <!-- load dojo -->
-  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dojo/dojo.js"></script>
-  <script>
-            require([ "dojo/_base/array", "dijit/form/Button", "dojo/aspect", "dojo/dom", "dojo/dom-construct",
-                    "dojo/domReady!" ], function(array, Button, aspect, dom, domConstruct) {
-                // connect to the lifecycle methods of a dijit.form.Button
-                var methods = [ "postscript", "create", "postMixInProperties", "buildRendering", "postCreate",
-                        "startup" ];
-                array.forEach(methods, function(method) {
-                    aspect.before(Button.prototype, method, function() {
-                        console.log(method, arguments);
-                        domConstruct.create("li", {
-                            innerHTML : method
-                        }, dom.byId("lifecycle"));
-                    });
-                });
-
-                // ok, create a button programmatically
-                var button = Button({
-                    label : "A button"
-                }, dom.byId("buttonContainer"));
-
-                button.startup();
-            });
-        </script>
+     <ol id="ol_lifecycle"></ol>
 </body>
 </html>

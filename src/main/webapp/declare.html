@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial: Hello Dojo!</title>
+<!-- configure Dojo -->
+<script>
+    // Instead of using data-dojo-config, we're creating a dojoConfig
+    // object *before* we load dojo.js; they're functionally identical,
+    // it's just easier to read this approach with a larger configuration.
+    console.info("location: " + location);
+    console.info("location.href: " + location.href);
+    console.info("location.pathname: " + location.pathname);
+    console.info("location.host: " + location.host);
+    console.info("new location: " + location.pathname.replace(/\/[^/]*$/, '') + '/app');
+
+    var dojoConfig = {
+        async : true,
+        // This code registers the correct location of the "demo" package so we can load Dojo from the CDN whilst still being able to load local modules
+        packages : [ {
+            name : "demo",
+            location : location.pathname.replace(/\/[^/]*$/, '') + '/demo'
+        }, {
+            name : "app",
+            location : location.pathname.replace(/\/[^/]*$/, '') + '/app'
+        } ]
+    };
+</script>
+
+<!-- load Dojo -->
+<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.2/dojo/dojo.js"></script>
+
+<script type="text/javascript">
+    require([ "app/Sample", "app/SampleMixin", 'dojo/domReady!' ], function(Sample, SampleMixin) {
+        var sample = new Sample("Hello", "World!!");
+        sample.test();
+
+        var sampleMixin1 = new SampleMixin({});
+        sampleMixin1.test();
+
+        var args = {
+            username : "sitepen",
+            age : 30
+        };
+        var sampleMixin2 = new SampleMixin(args);
+        sampleMixin2.test();
+    });
+</script>
+</head>
+<body>
+     <h1 id="greeting">Hello</h1>
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,39 +8,41 @@
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dijit/themes/claro/claro.css" media="screen">
 </head>
 <body class="claro">
-  <div class="demoLayout" style="height: 800px; width: 800px" data-dojo-type="dijit/layout/BorderContainer"
-    data-dojo-props="design: 'headline'">
+     <div class="demoLayout" style="height: 800px; width: 800px" data-dojo-type="dijit/layout/BorderContainer"
+          data-dojo-props="design: 'headline'">
 
-    <div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center'">center</div>
+          <div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center'">center</div>
 
-    <div class="demoLayout" style="height: 50%" data-dojo-type="dijit/layout/BorderContainer"
-      data-dojo-props="region: 'top', splitter: true, design: 'headline'">
-      <div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center'">top -
-        center</div>
-      <div class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'bottom'">top -
-        bottom</div>
-    </div>
+          <div class="demoLayout" style="height: 50%" data-dojo-type="dijit/layout/BorderContainer"
+               data-dojo-props="region: 'top', splitter: true, design: 'headline'">
+               <div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center'">top
+                    - center</div>
+               <div class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'bottom'">top
+                    - bottom</div>
+          </div>
 
-    <div class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter: true, region: 'left'">left</div>
+          <div class="edgePanel" data-dojo-type="dijit/layout/ContentPane"
+               data-dojo-props="splitter: true, region: 'left'">left</div>
 
-    <div class="demoLayout" style="width: 50%" data-dojo-type="dijit/layout/BorderContainer"
-      data-dojo-props="splitter: true,region: 'right', design: 'headline'">
-      <div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center'">right
-        - center</div>
-      <div class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'left'">right -
-        left</div>
-    </div>
-    
-    <div class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter: true, region: 'bottom'">bottom</div>
-  </div>
+          <div class="demoLayout" style="width: 50%" data-dojo-type="dijit/layout/BorderContainer"
+               data-dojo-props="splitter: true,region: 'right', design: 'headline'">
+               <div class="centerPanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'center'">right
+                    - center</div>
+               <div class="edgePanel" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'left'">right
+                    - left</div>
+          </div>
 
-  <!-- load dojo -->
-  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dojo/dojo.js"></script>
-  <script>
-            require([ "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/domReady!" ],
-                    function(parser) {
-                        parser.parse();
-                    });
-        </script>
+          <div class="edgePanel" data-dojo-type="dijit/layout/ContentPane"
+               data-dojo-props="splitter: true, region: 'bottom'">bottom</div>
+     </div>
+
+     <!-- load dojo -->
+     <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dojo/dojo.js"></script>
+     <script>
+                        require([ "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane",
+                                "dojo/domReady!" ], function(parser) {
+                            parser.parse();
+                        });
+                    </script>
 </body>
 </html>
